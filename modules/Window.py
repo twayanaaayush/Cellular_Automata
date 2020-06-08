@@ -33,9 +33,11 @@ class App:
             elif event.type == MOUSEBUTTONDOWN:
                 cursor_pos = pygame.mouse.get_pos()
                 if self.checkbounds(cursor_pos):
-                    self.game_scene.change_state(cursor_pos)
+                    self.game_scene.change_cell_state(cursor_pos)
 
     def checkbounds(self, cursor_pos):
+        ''' Checks if the cursor is within the game scene bounds '''
+
         if cursor_pos[0] > self.scene_x_off and \
             cursor_pos[0] < self.scene_x_off + self.game_scene.width and \
                 cursor_pos[1] > self.scene_y_off and \

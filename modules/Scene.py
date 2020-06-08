@@ -17,8 +17,10 @@ class Scene:
         self.board = np.array([[Cell(self.img, x, y) 
                                 for x in range((int)(self.width / Cell.SIZE))] 
                                 for y in range((int)(self.height / Cell.SIZE))])
-              
-    def change_state(self, cursor_pos):
+
+    def change_cell_state(self, cursor_pos):
+        ''' Changes the current state (dead or alive) of the selected cell '''
+
         index = self.get_board_index(cursor_pos)
         cell = self.board
         
@@ -29,6 +31,8 @@ class Scene:
             cell[(int)(index.y)][(int)(index.x)].alive = True
 
     def get_board_index(self, cursor_pos):
+        ''' Returns the index of the selected cell '''
+
         vec2d = pygame.math.Vector2
 
         cursor_pos = vec2d(cursor_pos[0], cursor_pos[1])

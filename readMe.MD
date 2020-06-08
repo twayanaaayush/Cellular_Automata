@@ -41,8 +41,11 @@ As mentioned earlier, following the initial configuration, different patterns ev
 - Spaceships :- patterns that move about the grid from generation to generation.
   <p align="center"><img src="assets/spaceship.jpg" alt="Spaceships" height="200px"/></p>
 
-[//]: # (Checkout this website for more info on CA :: https://natureofcode.com/book/chapter-7-cellular-automata/)
+
+**>> For more info on Cellular Automata :-** [Nature Of Code][noc]
 
 [//]: # (These are reference links used in the body of this note. )
 
 [CA]: <https://mathworld.wolfram.com/CellularAutomaton.html#:~:text=A%20cellular%20automaton%20is%20a,many%20time%20steps%20as%20desired.>
+
+[noc]: <https://natureofcode.com/book/chapter-7-cellular-automata/>
