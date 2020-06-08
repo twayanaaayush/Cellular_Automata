@@ -4,7 +4,7 @@ The Game of Life (also known simply as Life) is an example of a [cellular automa
 
 <p align="center"><img src="assets/example.gif" alt="2D Cellular Automata" width = "300px"></p>
 
-<center>Figure: Game-of-Life-Pentomino</center>
+<p align="center">Figure: Game-of-Life-Pentomino</p>
 
 The state of each cell is determined by a set of rules that depends on the state of each cell's neighbourhood (the 8 cells adjacent to the particular cell).
 
@@ -36,9 +36,9 @@ As mentioned earlier, following the initial configuration, different patterns ev
   ![Still Life](assets/stillLife.jpg)
 
 - Oscillators :- patterns that change over time but repeat themselves after particular number of iterations.
-  <p align="center"><img src="assets/oscillator.jpg" alt="Spaceships" height="130px"/></p>
+  <p align="center"><img src="assets/oscillator.jpg" alt="Spaceships" height="160px"/></p>
 
 - Spaceships :- patterns that move about the grid from generation to generation.
-  <p align="center"><img src="assets/spaceship.jpg" alt="Spaceships" width="300px"/></p>
+  <p align="center"><img src="assets/spaceship.jpg" alt="Spaceships" height="200px"/></p>
 
 [CA]: <https://mathworld.wolfram.com/CellularAutomaton.html#:~:text=A%20cellular%20automaton%20is%20a,many%20time%20steps%20as%20desired.>
