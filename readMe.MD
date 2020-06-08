@@ -1,4 +1,4 @@
-# Conway's Game of Life
+# Conway's Game of Life  [![Python 3.6](https://img.shields.io/badge/python-3.7-blue.svg)](https://www.python.org/downloads/release/python-370/)
 
 The Game of Life (also known simply as Life) is an example of a [cellular automaton][CA] and a zero-player game, that takes place on an infinite 2D grid/ board in which each cells can have either of 2 states; ON ('alive') or OFF ('dead').
 
