@@ -1,6 +1,6 @@
 import pygame
 from pygame.math import Vector2
-from modules.Cell import Cell
+from .Cell import Cell
 import numpy as np
 
 
@@ -33,19 +33,19 @@ class Scene:
     def get_board_index(self, cursor_pos):
         ''' Returns the index of the selected cell '''
 
-        vec2d = pygame.math.Vector2
-
-        cursor_pos = vec2d(cursor_pos[0], cursor_pos[1])
-        rel_cursor_pos = vec2d(cursor_pos.x-self.pos.x, 
+        cursor_pos = Vector2(cursor_pos[0], cursor_pos[1])
+        rel_cursor_pos = Vector2(cursor_pos.x-self.pos.x, 
                                 cursor_pos.y-self.pos.y)
 
-        return vec2d((rel_cursor_pos.x // Cell.SIZE),
+        return Vector2((rel_cursor_pos.x // Cell.SIZE),
                     (rel_cursor_pos.y // Cell.SIZE))
 
     def update(self):
+        ''' Updates each cell on the board '''
+
         for row in self.board:
             for cell in row:
-                cell.update()
+                cell.update(self.board)
 
     def draw(self):
         ''' Draw the Game Scene on the main surface '''

@@ -1,7 +1,7 @@
 from pygame.locals import *
 import pygame
 import sys
-from . import Scene
+from .Scene import Scene
 
 
 class App:
@@ -19,8 +19,8 @@ class App:
         self._display_surf = pygame.display.set_mode(App.SIZE)
         self.clock = pygame.time.Clock()
 
-        self.scene_x_off, self.scene_y_off = 150, 50
-        self.game_scene = Scene.Scene(self._display_surf, self.scene_x_off, self.scene_y_off)
+        self.scene_x_off, self.scene_y_off = 50, 50
+        self.game_scene = Scene(self._display_surf, self.scene_x_off, self.scene_y_off)
 
         self.running = True
 
@@ -46,7 +46,7 @@ class App:
         return False
 
     def update(self):
-        ''' Updating the game window '''
+        ''' Updating the display window '''
         
         self.game_scene.update()
 
