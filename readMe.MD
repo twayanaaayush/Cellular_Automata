@@ -1,6 +1,6 @@
-# Conway's Game of Life  [![Python 3.6](https://img.shields.io/badge/python-3.7-blue.svg)](https://www.python.org/downloads/release/python-370/)
+# Conway's Game of Life [![Python 3.6](https://img.shields.io/badge/python-3.7-blue.svg)](https://www.python.org/downloads/release/python-370/)
 
-The Game of Life (also known simply as Life) is an example of a [cellular automaton][CA] and a zero-player game, that takes place on an infinite 2D grid/ board in which each cells can have either of 2 states; ON ('alive') or OFF ('dead').
+The Game of Life (also known simply as Life) is an example of a [cellular automaton][CA] and a zero-player game, that takes place on an infinite 2D Grid/ Board in which each cells can have either of 2 states; ON ('alive') or OFF ('dead').
 
 <p align="center"><img src="assets/example.gif" alt="2D Cellular Automata" width = "300px"></p>
 
@@ -40,5 +40,9 @@ As mentioned earlier, following the initial configuration, different patterns ev
 
 - Spaceships :- patterns that move about the grid from generation to generation.
   <p align="center"><img src="assets/spaceship.jpg" alt="Spaceships" height="200px"/></p>
+
+[//]: # (Checkout this website for more info on CA :: https://natureofcode.com/book/       chapter-7-cellular-automata/)
+
+[//]: # (These are reference links used in the body of this note. )
 
 [CA]: <https://mathworld.wolfram.com/CellularAutomaton.html#:~:text=A%20cellular%20automaton%20is%20a,many%20time%20steps%20as%20desired.>
