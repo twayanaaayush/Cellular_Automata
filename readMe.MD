@@ -4,7 +4,7 @@ The Game of Life (also known simply as Life) is an example of a [cellular automa
 
 The state of each cell is determined by a set of rules that depends on the state of each cell's neighbours (the 8 cells adjacent to the particular cell).
 
-![2D Cellular Automata](assets/2DCA.jpg =250x)
+<img src="assets/2DCA.jpg" alt="2D Cellular Automata" width = "200px">
 
 Following the specification given initially, patterns evolve over time across the Grid, requiring no further user input, (thus the 'zero-player' Game).
 
