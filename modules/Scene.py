@@ -1,6 +1,6 @@
 import pygame
 from pygame.math import Vector2
-from Cell import Cell
+from modules.Cell import Cell
 import numpy as np
 
 
@@ -18,6 +18,26 @@ class Scene:
                                 for x in range((int)(self.width / Cell.SIZE))] 
                                 for y in range((int)(self.height / Cell.SIZE))])
               
+    def change_state(self, cursor_pos):
+        index = self.get_board_index(cursor_pos)
+        cell = self.board
+        
+        # print (index.x, index.y)
+        if cell[(int)(index.y)][(int)(index.x)].alive:
+            cell[(int)(index.y)][(int)(index.x)].alive = False
+        else:
+            cell[(int)(index.y)][(int)(index.x)].alive = True
+
+    def get_board_index(self, cursor_pos):
+        vec2d = pygame.math.Vector2
+
+        cursor_pos = vec2d(cursor_pos[0], cursor_pos[1])
+        rel_cursor_pos = vec2d(cursor_pos.x-self.pos.x, 
+                                cursor_pos.y-self.pos.y)
+
+        return vec2d((rel_cursor_pos.x // Cell.SIZE),
+                    (rel_cursor_pos.y // Cell.SIZE))
+
     def update(self):
         for row in self.board:
             for cell in row:
