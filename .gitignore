@@ -10,6 +10,8 @@ __pycache__/
 [Ss]cripts
 pyvenv.cfg
 .venv
+venv
+./venv
 pip-selfcheck.json
 
 ## vscode ##
