@@ -1,1 +1,1 @@
-#New py Project
+#Conway's Game Of Life#
