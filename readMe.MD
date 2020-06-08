@@ -41,7 +41,7 @@ As mentioned earlier, following the initial configuration, different patterns ev
 - Spaceships :- patterns that move about the grid from generation to generation.
   <p align="center"><img src="assets/spaceship.jpg" alt="Spaceships" height="200px"/></p>
 
-[//]: # (Checkout this website for more info on CA :: https://natureofcode.com/book/       chapter-7-cellular-automata/)
+[//]: # (Checkout this website for more info on CA :: https://natureofcode.com/book/chapter-7-cellular-automata/)
 
 [//]: # (These are reference links used in the body of this note. )
 
