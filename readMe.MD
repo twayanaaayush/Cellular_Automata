@@ -2,9 +2,9 @@
 
 The Game of Life (also known simply as Life) is an example of a [cellular automaton][CA] and a zero-player game, that takes place on an infinite 2D grid/ board in which each cells can have either of 2 states; ON ('alive') or OFF ('dead').
 
-<img src="assets/example.gif" alt="2D Cellular Automata" width = "300px">
+<center><img src="assets/example.gif" alt="2D Cellular Automata" width = "300px"></center>
 
-Figure: Game-of-Life-Pentomino
+<center>Figure: Game-of-Life-Pentomino</center>
 
 The state of each cell is determined by a set of rules that depends on the state of each cell's neighbourhood (the 8 cells adjacent to the particular cell).
 
@@ -36,9 +36,9 @@ As mentioned earlier, following the initial configuration, different patterns ev
   ![Still Life](assets/stillLife.jpg)
 
 - Oscillators :- patterns that change over time but repeat themselves after particular number of iterations.
-  ![Oscillators](assets/oscillator.jpg)
+  <center><img src="assets/oscillator.jpg" alt="Spaceships" height="130px"/></center>
 
 - Spaceships :- patterns that move about the grid from generation to generation.
-  <img src="assets/spaceship.jpg" alt="Spaceships" width=400/>
+  <center><img src="assets/spaceship.jpg" alt="Spaceships" width="300px"/></center>
 
 [CA]: <https://mathworld.wolfram.com/CellularAutomaton.html#:~:text=A%20cellular%20automaton%20is%20a,many%20time%20steps%20as%20desired.>
