@@ -14,6 +14,7 @@ class Cell:
 
         # self.alive = random.randint(0,1)
         self.alive = False
+        self.neighbours = 0
         self.img = pygame.Surface((Cell.SIZE, Cell.SIZE))
 
     def update(self):

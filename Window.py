@@ -34,12 +34,14 @@ class App:
             elif event.type == MOUSEBUTTONDOWN:
                 cursor_pos = pygame.mouse.get_pos()
                 if self.checkbounds(cursor_pos):
-                    cursor_pos = pygame.math.Vector2(cursor_pos[0], cursor_pos[1])
-                    rel_cursor_pos = pygame.math.Vector2(cursor_pos.x-self.scene_x_off, 
-                                                        cursor_pos.y-self.scene_y_off)
-                    # print (rel_cursor_pos.y, rel_cursor_pos.x)
-                    self.game_scene.board[(int)(rel_cursor_pos.y // Cell.SIZE)] \
-                                        [(int)(rel_cursor_pos.x // Cell.SIZE)].alive = True
+                    index = self.get_board_index(cursor_pos)
+                    cell = self.game_scene.board
+
+                    # print (index.x, index.y)
+                    if cell[(int)(index.y)][(int)(index.x)].alive:
+                        cell[(int)(index.y)][(int)(index.x)].alive = False
+                    else:
+                        cell[(int)(index.y)][(int)(index.x)].alive = True
 
     def checkbounds(self, cursor_pos):
         if cursor_pos[0] > self.scene_x_off and \
@@ -48,6 +50,16 @@ class App:
                     cursor_pos[1] < self.scene_y_off + self.game_scene.height:
                 return True
         return False
+
+    def get_board_index(self, cursor_pos):
+        vec2d = pygame.math.Vector2
+
+        cursor_pos = vec2d(cursor_pos[0], cursor_pos[1])
+        rel_cursor_pos = vec2d(cursor_pos.x-self.scene_x_off, 
+                                cursor_pos.y-self.scene_y_off)
+
+        return vec2d((rel_cursor_pos.x // Cell.SIZE),
+                    (rel_cursor_pos.y // Cell.SIZE))
 
     def update(self):
         ''' Updating the game window '''
