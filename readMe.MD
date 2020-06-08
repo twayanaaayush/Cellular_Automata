@@ -2,9 +2,9 @@
 
 The Game of Life (also known simply as Life) is an example of a [cellular automaton][CA] and a zero-player game, that takes place on an infinite 2D grid/ board in which each cells can have either of 2 states; on ('alive') or off ('dead').
 
-The state of each cell is determined by a set of rules that depends on the state of each cell's neighbours.
-
 <img src="assets/2DCA.jpg" alt="2D Cellular Automata" width = "300px">
+
+The state of each cell is determined by a set of rules that depends on the state of each cell's neighbourhood (the 8 cells adjacent to the particular cell).
 
 Following the specification given initially, patterns evolve over time across the Grid, requiring no further user input, (thus the 'zero-player' Game).
 
