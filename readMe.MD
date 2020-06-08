@@ -33,10 +33,10 @@ The simple rules of life are:
 As mentioned earlier, following the initial configuration, different patterns evolve over time. While some patterns change over time, other remains static and never change.
 
 - Still Life :- a stable pattern in which no changes occur after the initial configuration.
-  ![Still Life](assets/stillLife.jpg)
+  <p align="center"><img src="assets/stillLife.jpg" alt="Still Life" height="150px"/></p>
 
 - Oscillators :- patterns that change over time but repeat themselves after particular number of iterations.
-  <p align="center"><img src="assets/oscillator.jpg" alt="Spaceships" height="160px"/></p>
+  <p align="center"><img src="assets/oscillator.jpg" alt="Oscillators" height="160px"/></p>
 
 - Spaceships :- patterns that move about the grid from generation to generation.
   <p align="center"><img src="assets/spaceship.jpg" alt="Spaceships" height="200px"/></p>
