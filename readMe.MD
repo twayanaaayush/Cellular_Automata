@@ -42,7 +42,7 @@ As mentioned earlier, following the initial configuration, different patterns ev
   <p align="center"><img src="assets/spaceship.jpg" alt="Spaceships" height="200px"/></p>
 
 
-**>> For more info on Cellular Automata :-** [Nature Of Code][noc]
+**For more info on Cellular Automata :-** [Nature Of Code][noc]
 
 [//]: # (These are reference links used in the body of this note. )
 
