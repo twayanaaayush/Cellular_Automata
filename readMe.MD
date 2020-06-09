@@ -23,7 +23,7 @@ The simple rules of life are:
 - Birth :- If a cell is dead at time (t-1), it willcome to life at time (t), if it has "exactly" 3 alive neighbours.
 
 - Statis :- In all other cases, the cell does not change it's state. To be more precise:
-  - Staying alive :- If a cell is alive at time (t-1) and has exactly2 or 3 live neighbours, then it stays alive.
+  - Staying alive :- If a cell is alive at time (t-1) and has exactly 2 or 3 live neighbours, then it stays alive.
   - Staying dead :- If a cell is dead at time (t-1) and has anything other than 3 live neighbours, it stays dead.
   
 ![Cell State Change](assets/changeState.jpg)

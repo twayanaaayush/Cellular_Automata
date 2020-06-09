@@ -45,12 +45,13 @@ class Scene:
 
         for row in self.board:
             for cell in row:
+                cell.saveprevious()
                 cell.update(self.board)
 
     def draw(self):
         ''' Draw the Game Scene on the main surface '''
 
-        self.img.fill((122, 122, 122))
+        # self.img.fill((122, 122, 122))
         for row in self.board:
             for cell in row:
                 cell.draw()
