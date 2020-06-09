@@ -45,7 +45,7 @@ class Scene:
 
         for row in self.board:
             for cell in row:
-                cell.saveprevious()
+                cell.checkprevious()
                 cell.update(self.board)
 
     def draw(self):

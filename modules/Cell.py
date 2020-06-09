@@ -12,7 +12,8 @@ class Cell:
         self._scene_surface = surface
         self.pos = Vector2(x, y)
 
-        self.alive = random.choice((1,0,0,0,0,0,0,0,0,0,0,0,0))
+        # self.alive = random.choice((1,0,0,0,0,0,0,0,0,0,0))
+        self.alive = False
         self.previous = self.alive   #state of previous generation of the cell
         self.neighbours = 0
         self.img = pygame.Surface((Cell.SIZE, Cell.SIZE))
@@ -48,7 +49,7 @@ class Cell:
         elif self.previous == True and self.neighbours > 3: self.alive = False
         elif self.previous == 0 and self.neighbours == 3: self.alive = True
         
-    def saveprevious(self):
+    def checkprevious(self):
         self.previous = self.alive
 
     def update(self, board):

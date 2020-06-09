@@ -2,12 +2,13 @@ from pygame.locals import *
 import pygame
 import sys
 from .Scene import Scene
+from .Buttons import Button
 
 
 class App:
     ''' Creates a single non-resizable window App. '''
 
-    WINDOW_WIDTH, WINDOW_HEIGHT = 800, 600
+    WINDOW_WIDTH, WINDOW_HEIGHT = 850, 600
     SIZE = (WINDOW_WIDTH, WINDOW_HEIGHT)
     FPS = 60
 
@@ -21,6 +22,12 @@ class App:
 
         self.scene_x_off, self.scene_y_off = 50, 50
         self.game_scene = Scene(self._display_surf, self.scene_x_off, self.scene_y_off)
+
+        self.run_button = Button(self._display_surf, 600, 50, 95)
+        self.pause_button = Button(self._display_surf, 705, 50, 95)
+        self.generate_button = Button(self._display_surf, 600, 110, 200)
+
+        self.button_grp = [self.run_button, self.pause_button, self.generate_button]
 
         self.running = True
 
@@ -55,6 +62,8 @@ class App:
 
         self._display_surf.fill((255, 255, 255))
         self.game_scene.draw()
+        for button in self.button_grp:
+            button.draw()
         pygame.display.update()
 
     def run(self):
