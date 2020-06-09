@@ -22,12 +22,14 @@ class App:
 
         self.scene_x_off, self.scene_y_off = 50, 50
         self.game_scene = Scene(self._display_surf, self.scene_x_off, self.scene_y_off)
+        self.scene_state = "pause"
 
-        self.run_button = Button(self._display_surf, 600, 50, 95)
-        self.pause_button = Button(self._display_surf, 705, 50, 95)
-        self.generate_button = Button(self._display_surf, 600, 110, 200)
+        self.run_button = Button(self._display_surf, (600, 50), "Run", 95)
+        self.pause_button = Button(self._display_surf, (705, 50), "Pause", 95)
+        self.generate_button = Button(self._display_surf, (600, 110),"Generate Random", 200)
+        self.reset_button = Button(self._display_surf, (600, 170),"Reset", 200)
 
-        self.button_grp = [self.run_button, self.pause_button, self.generate_button]
+        self.button_grp = [self.run_button, self.pause_button, self.generate_button, self.reset_button]
 
         self.running = True
 
@@ -41,6 +43,12 @@ class App:
                 cursor_pos = pygame.mouse.get_pos()
                 if self.checkbounds(cursor_pos):
                     self.game_scene.change_cell_state(cursor_pos)
+                else:
+                    #Not the best way....try to optimize this
+                    if (self.run_button.onclick(cursor_pos)): self.scene_state = "run"
+                    elif (self.pause_button.onclick(cursor_pos)): self.scene_state = "pause"
+                    elif (self.generate_button.onclick(cursor_pos)): self.scene_state = "generate"
+                    elif (self.reset_button.onclick(cursor_pos)): self.scene_state = "reset"
 
     def checkbounds(self, cursor_pos):
         ''' Checks if the cursor is within the game scene bounds '''
@@ -55,7 +63,15 @@ class App:
     def update(self):
         ''' Updating the display window '''
         
-        self.game_scene.update()
+        if self.scene_state == "run":
+            self.game_scene.update()
+        elif self.scene_state == "reset":
+            self.game_scene.reset()
+            self.scene_state = "pause"
+        elif self.scene_state == "generate":
+            self.game_scene.generate()
+            self.scene_state = "run"
+
 
     def draw(self):
         ''' Rendering the graphics on the display surface '''

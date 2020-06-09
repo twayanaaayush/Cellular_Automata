@@ -1,7 +1,8 @@
 import pygame
 from pygame.math import Vector2
-from .Cell import Cell
 import numpy as np
+import random
+from .Cell import Cell
 
 
 class Scene:
@@ -17,6 +18,17 @@ class Scene:
         self.board = np.array([[Cell(self.img, x, y) 
                                 for x in range((int)(self.width / Cell.SIZE))] 
                                 for y in range((int)(self.height / Cell.SIZE))])
+
+    def reset(self):
+        for row in self.board:
+            for cell in row:
+                cell.alive = False
+    
+    def generate(self):
+        for row in self.board:
+            for cell in row:
+                cell.alive = random.choice((1,0,0,0,0,0,0,0,0,0,0,0))
+                # cell.alive = random.randint(0,2)
 
     def change_cell_state(self, cursor_pos):
         ''' Changes the current state (dead or alive) of the selected cell '''
@@ -43,10 +55,15 @@ class Scene:
     def update(self):
         ''' Updates each cell on the board '''
 
+        self.checkprevious()
         for row in self.board:
             for cell in row:
-                cell.checkprevious()
                 cell.update(self.board)
+
+    def checkprevious(self):
+        for row in self.board:
+            for cell in row:
+                 cell.previous = cell.alive
 
     def draw(self):
         ''' Draw the Game Scene on the main surface '''
