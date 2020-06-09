@@ -19,15 +19,19 @@ class Scene:
                                 for x in range((int)(self.width / Cell.SIZE))] 
                                 for y in range((int)(self.height / Cell.SIZE))])
 
+        #setting the default state of the scene
+        self.state = "pause"
+
     def reset(self):
         for row in self.board:
             for cell in row:
                 cell.alive = False
+                cell.previous = False
     
     def generate(self):
         for row in self.board:
             for cell in row:
-                cell.alive = random.choice((1,0,0,0,0,0,0,0,0,0,0,0))
+                cell.alive = random.choice((1,0,0,0,0,0,0,0))
                 # cell.alive = random.randint(0,2)
 
     def change_cell_state(self, cursor_pos):

@@ -1,6 +1,6 @@
 #Program: Conway's Game of Life
 #Author: Aayush Twayana
-#Date: 2020 July 3
+#Date: 2020 June 9
 
 from modules.Window import App
 
