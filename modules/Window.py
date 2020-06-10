@@ -37,9 +37,53 @@ class App:
 
         #creating a pygame Surface called Legend to display various info.
         self.legend = pygame.Surface((200,300))
+        #offset for the legend display
+        self.legend_x_offset, self.legend_y_offset = 600, 250 
+        #fonts to display in the legend
+        self.factive_cell = None
+        self.fcolorcode = self.create_font("-"*8+" Color Code "+"-"*8, 18)
+        self.fdeath = self.create_font("Red:  Death", 15, (200,0,0))
+        self.fbirth = self.create_font("Blue:  Birth", 15, (0,0,200))
+        self.fstatic = self.create_font("Black:  Static", 15)
+        self.fcell_count =  self.create_font("Total Cells:  " + str(self.game_scene.cell_count), 15)
+        self.fstatus = self.create_font("Status:  " + str(self.game_scene.state).upper(), 15, (200,0,0))
 
         #setting the running variable to control the game loop.
         self.running = True
+
+        #tracks when the state changed (used to update the fstatus only when there is change in game state)
+        self.status = self.game_scene.state
+
+    def create_font(self, text, size, color=(50,50,50)):
+        ''' Returns a new font object '''
+
+        font = pygame.font.SysFont("Calibri", size, True)
+        text = font.render(text, True, color)
+        return text
+
+    def update_font(self):
+        ''' Updates the font object to match the updated info. '''
+
+        self.factive_cell = self.create_font("Live Cells:  " + str(self.game_scene.active_cell), 15)
+
+        if self.status != self.game_scene.state:
+            if self.game_scene.state == "run":
+                self.fstatus = self.create_font("Status:  " + str(self.game_scene.state).upper(), 15, (0,100,0))
+            else:
+                self.fstatus = self.create_font("Status:  " + str(self.game_scene.state).upper(), 15, (200,0,0))
+
+
+    def render_font(self, surface):
+        ''' Draws the fonts to the legend display '''
+
+        #renders the font to the legend surface
+        surface.blit(self.fcell_count, (10,10))
+        surface.blit(self.factive_cell, (10,30))
+        surface.blit(self.fcolorcode, (10,70))
+        surface.blit(self.fdeath, (10,100))
+        surface.blit(self.fbirth, (10,120))
+        surface.blit(self.fstatic, (10,140))
+        surface.blit(self.fstatus, (10,285))
 
     def input_handler(self):
         ''' Handling the user inputs '''
@@ -83,20 +127,35 @@ class App:
         elif self.game_scene.state == "reset":
             self.game_scene.reset()
             self.game_scene.state = "pause"
+            self.game_scene.active_cell = 0 #kinda redundant but it does the job
         elif self.game_scene.state == "generate":
             self.game_scene.generate()
             self.game_scene.state = "run"
 
+
+        #updates the font in the legend display
+        self.update_font()
+        self.status = self.game_scene.state
+
     def draw(self):
         ''' Rendering the graphics on the display surface '''
 
-        #fills the display surface to a color...alternative to clearing the screen to perform new drawing action.
+        #fills the display surface to a color...alternative to clearing the screen to
+        #perform new drawing action.
         self._display_surf.fill((255, 255, 255))
+
         #calling the draw function for game_scene object.
         self.game_scene.draw()
+
         #draws all the buttons in the button group.
         for button in self.button_grp:
             button.draw()
+
+        self.legend.fill((255, 255, 255))
+        self.render_font(self.legend)   #renders the font to the screen
+        #draws the legend display to the main display surface
+        self._display_surf.blit(self.legend, (self.legend_x_offset, self.legend_y_offset))
+
         #updating the display window..similar to display.flip()
         pygame.display.update()
 

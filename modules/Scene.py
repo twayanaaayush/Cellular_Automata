@@ -22,6 +22,11 @@ class Scene:
         #setting the default state of the scene
         self.state = "pause"
 
+        #counts number of cells in the board
+        self.cell_count = self.width // Cell.SIZE * self.height // Cell.SIZE
+        #number of live cells
+        self.active_cell = 0
+
     def reset(self):
         for row in self.board:
             for cell in row:
@@ -59,10 +64,13 @@ class Scene:
     def update(self):
         ''' Updates each cell on the board '''
 
+        self.active_cell = 0
         self.checkprevious()
         for row in self.board:
             for cell in row:
                 cell.update(self.board)
+                if cell.alive:
+                    self.active_cell += 1
 
     def checkprevious(self):
         for row in self.board:
